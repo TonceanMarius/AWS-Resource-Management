@@ -208,7 +208,7 @@ class S3Operations:
             
             ask_file = input(f'\nPlease introduce the name of the file that'
                              f' you want to upload in the bucket {ask_s3}'
-                             f'or "q" to quit: ')
+                             f' or "q" to quit: ')
             if ask_file in list_files:
               self.s3_client.upload_file(ask_file, ask_s3, ask_file)
               list_files.remove(ask_file)
@@ -219,7 +219,7 @@ class S3Operations:
               
             else:
               print("\nElement doesn't exist in the list")
-            
+          print(f"\nAll the files have been added in the bucket {ask_s3} ")
           break
         else:
           print(f"\nThe bucket {ask_s3} doens't exist")

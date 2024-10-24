@@ -102,8 +102,8 @@ class EC2Operations:
     
             elif (tag['Key'] == 'Name' and tag['Value'] == ask_ec2_stop
                   and instance['State']['Name'] == 'terminated'):
-              print(f"\nThe EC2 instance {ask_ec2_stop}"
-                    f" has already been terminated")
+              print(f"\nThe EC2 instance {ask_ec2_stop} can't be stopped,"
+                    f" it has already been terminated")
     
             elif (tag['Key'] == 'Name' and tag['Value'] == ask_ec2_stop
                   and instance['State']['Name'] == 'shutting-down'):
@@ -156,8 +156,8 @@ class EC2Operations:
     
             elif (tag['Key'] == 'Name' and tag['Value'] == name_ec2
                   and instance['State']['Name'] == 'terminated'):
-              print(f"\nThe EC2 instance {name_ec2}"
-                    f" has already been terminated")
+              print(f"\nThe EC2 instance {name_ec2} can't be started,"
+                    f" it has already been terminated")
     
             elif (tag['Key'] == 'Name' and tag['Value'] == name_ec2
                   and instance['State']['Name'] == 'shutting-down'):
@@ -264,7 +264,7 @@ class EC2Operations:
                   f"Instance Availability Zone: {res1['Placement']['AvailabilityZone']}"
               )
               
-    elif ask_info not in list_ec2:
+    elif ask_info not in list_ec2 and ask_info != 'q':
       print("\nThe EC2 instance you want to access information doesn't exists")
     elif ask_info == "q":
       pass
